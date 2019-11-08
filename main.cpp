@@ -42,6 +42,7 @@ int main()
 				std::cout << "wrong index, try again\n";
 				continue;
 			} else {
+				delete v[i];
 				v.erase(v.begin() + i);
 			}
 		} else if (cmd == "figure") {
@@ -60,7 +61,9 @@ int main()
 		} else if (cmd == "help") {
 			std::cout << "Enter:\nadd - to add figure\ndelete - to delete figure\nfigure - to print square and center of figure\ntotal - to print total area of all figure\nexit - to complite programme execution\nhelp - to show this manual\n";
 		} else if (cmd == "exit") {
-			
+			for (auto& c : v) {
+				delete c;
+			}
 			break;
 		} else {
 			std::cout << "wrong comand, try again\n";
